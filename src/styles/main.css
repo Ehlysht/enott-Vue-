@@ -1,0 +1,16 @@
+@import "base.css";
+@import "header.css";
+@import "items.css";
+@import "chemical.css";
+@import "popular.css";
+@import "home.css";
+.content{
+    margin-top: 25px;
+}
+.title{
+    font-size: 35px;
+}
+.subtitle{
+    font-size: 20px;
+    font-weight: 600;
+}
