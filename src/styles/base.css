@@ -1,0 +1,39 @@
+*{
+	padding: 0;
+	margin: 0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 19px;
+	box-sizing: border-box;
+    letter-spacing: 0.02em;
+}
+a, a:hover{
+	text-decoration: none;
+	color: inherit;
+    letter-spacing: 0.02em;
+}
+ul, li, p, h1, h2, h3, h4, h5, h6{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+    letter-spacing: 0.02em;
+}
+input{
+	outline: none;
+}
+button{
+	padding: 0;
+	border: none;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}

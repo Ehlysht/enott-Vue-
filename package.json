@@ -1,0 +1,29 @@
+{
+  "name": "enott",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@fortawesome/free-regular-svg-icons": "^6.1.0",
+    "@fortawesome/free-solid-svg-icons": "^6.1.0",
+    "@fortawesome/vue-fontawesome": "^3.0.0-5",
+    "@vueform/slider": "^2.0.9",
+    "axios": "^0.26.0",
+    "core-js": "^3.8.3",
+    "vue": "^3.2.13",
+    "vue-agile": "^2.0.0",
+    "vue-axios": "^3.4.1",
+    "vue-glide-js": "^1.3.14",
+    "vue-owl-carousel": "^2.0.3",
+    "vue-router": "^4.0.13",
+    "vue3-carousel": "^0.1.36",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-service": "~5.0.0"
+  }
+}
