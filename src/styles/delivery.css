@@ -1,0 +1,30 @@
+.delivery{
+    margin: -25px 0 -100px 0;
+    background: #f3f6ff;
+    padding: 25px 15px 150px;
+}
+.delivery-title{
+    font-size: 30px;
+    color: #330066;
+    font-weight: 600;
+    margin-top: 40px;
+}
+.delivery-infos{
+    background: #fff;
+    margin-top: 13px;
+    padding: 16px 27px 0 27px;
+    box-shadow: 0.726px 2.911px 5px rgb(0 0 0 / 15%);
+}
+.delivery-info{
+    padding-bottom: 28px;
+}
+.delivery-info-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+.delivery-info-text{
+    font-size: 16px;
+    margin-top: 9px;
+    line-height: 1.5em;
+    border-radius: 5px;
+}

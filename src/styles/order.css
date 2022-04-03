@@ -1,0 +1,48 @@
+.order{
+    padding: 20px 0 150px;
+}
+.order-title{
+    text-align: left;
+    margin-bottom: 30px;
+}
+.order-form{
+    background: #fff;
+    flex-direction: column;
+    display: flex;
+    padding: 10px 15px 15px;
+    border-radius: 5px;
+    filter: drop-shadow(0.726px 2.911px 5px rgba(0,0,0,0.15));
+    width: 640px;
+}
+.order-text{
+    color: #666666;
+    font-size: 16px;
+    margin-bottom: 1px;
+}
+.order-input{
+    margin-bottom: 19px;
+    width: 570px;
+    border: 2px solid #b8baf6;
+    height: 47px;
+}
+.order-input:focus{
+    border: 2px solid #fda44b;
+    box-shadow: 3px 3px 5px 0 rgb(0 0 0 / 15%);
+}
+.order-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.order-buttons>.order-buttons-back{
+    background: rgba(0,0,0,.2);
+}
+.order-radio{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.order-radio-text{
+    font-size: 17px;
+    color: #000;
+}

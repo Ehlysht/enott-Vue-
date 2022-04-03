@@ -9,6 +9,7 @@ import Oil from '@/pages/Oil'
 import Cart from '@/pages/Cart'
 import Menu2 from '@/pages/oil/Menu'
 import Delivery from '@/pages/Delivery'
+import Order from '@/pages/Order'
 const routes = [
     {
       path: "/",
@@ -49,6 +50,12 @@ const routes = [
       path: "/delivery",
       name: "Delivery",
       component: Delivery,
+    },
+    ,
+    {
+      path: "/order",
+      name: "Order",
+      component: Order,
     },
     
 ];

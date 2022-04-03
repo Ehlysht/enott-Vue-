@@ -1,5 +1,5 @@
 <template>
-  <carousel :items-to-show="4" class="goods-list">
+  <carousel :items-to-show="4" class="goods-list pop-list">
     <slide v-for="(slide, index) in allTop" :key="index" class="items">
       <a 
           :href="`/items/${slide.id}`"

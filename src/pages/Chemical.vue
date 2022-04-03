@@ -5,7 +5,7 @@
                 <left-menu pageName="chemical"></left-menu>
                 <div class="goods">
                     <h2 class="title">
-                        Бытовая химия
+                        Побутова хімія
                     </h2>
                     <div class="goods-list">
                         <router-link tag="div"

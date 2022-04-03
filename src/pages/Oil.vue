@@ -5,7 +5,7 @@
                 <left-menu pageName="oil"></left-menu>
                 <div class="goods">
                     <h2 class="title">
-                        Автомобильные присадки
+                        Автомобільні присадки
                     </h2>
                     <div class="goods-list">
                         <router-link tag="div"

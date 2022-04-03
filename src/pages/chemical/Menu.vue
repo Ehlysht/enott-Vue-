@@ -1,4 +1,5 @@
 <template>
+<div class="container">
     <div class="contentMenu">
         <left-menu pageName="chemical"></left-menu>
         <div class="goods">
@@ -39,6 +40,7 @@
             </div>
         </div>
     </div>
+</div>
 </template>
 
 <script>

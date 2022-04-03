@@ -1,5 +1,6 @@
 <template>
-    <div>
+<div class="wrapper-content">
+    <div class="container">
         <div class="menu">
             <div
                 class="item"
@@ -29,11 +30,11 @@
                                 Количество
                             </p>
                             <div class="qty-inputs">
-                                <span class="qty-minus qty-change">
+                                <span class="qty-minus qty-change" @click="removeValue(item)">
                                     -
                                 </span>
-                                <input type="number" class="qty-value" value="1">
-                                <span class="qty-plus qty-change">
+                                <input type="number" class="qty-value" min="1" oninput="this.value = this.value <= 0 || this.value == '' ? 1 : this.value" v-model="item.qty">
+                                <span class="qty-plus qty-change" @click="addValue(item)">
                                     +
                                 </span>
                             </div>
@@ -43,7 +44,7 @@
                         </button>
                     </div>
                     <div class="item-delivery">
-                        <div class="delivery">
+                        <div class="deliverys">
                             <i class="delivery-icon">
                                 Icon
                             </i>
@@ -51,7 +52,7 @@
                                 Доставка: Нова Пошта, Деливери Получение: 1-3 дня
                             </p>
                         </div>
-                        <div class="delivery">
+                        <div class="deliverys">
                             <i class="delivery-icon">
                                 Icon
                             </i>
@@ -105,15 +106,19 @@
                 </div>
             </div>
         </div>
-        <div class="top">
+        <div class="item-top">
+            <h3 class="item-top-title">
+                Топ продажів
+            </h3>
             <top-items/>
         </div>
     </div>
+</div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
-import TopItems from '@/pages/Top-Items.vue'
+import TopItems from '@/components/Top-Items.vue'
 export default {
     components:{
         TopItems
@@ -145,6 +150,16 @@ export default {
         ... mapMutations(['getCart']),
         addCart(item){
             this.getCart(item);
+        },
+        addValue(item){
+            item.qty = parseInt(item.qty) + 1;
+        },
+        removeValue(item){
+            if(item.qty <= 1){
+                item.qty = 1;
+            }else{
+               item.qty = parseInt(item.qty - 1);
+            }
         }
     }
 }

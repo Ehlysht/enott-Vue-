@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper-content">
+    <div class="wrapper-content-home">
         <section class="banners">
             <div class="container">
                 <carousel :items-to-show="1" class="banners">
@@ -15,6 +15,9 @@
         </section>
         <section class="popular">
             <div class="container">
+                <h2 class="popular-title title">
+                    Топ продажів
+                </h2>
                 <top-items/>
             </div>
         </section>
@@ -24,7 +27,7 @@
             <img src="@/assets/img/bottle.png" alt="bottle" class="astonish-bottle">
             <div class="container">
                 <div class="astonish-texts">
-                    <h3 class="astonish-title subtitle">
+                    <h3 class="astonish-title">
                         ASTONISH — один из лучших производителей бытовой химии в Европе!
                     </h3>
                     <p class="astonish-text">
@@ -128,116 +131,212 @@
             </div>
         </section>
         <section class="range">
-            <div class="car">
-                <img src="@/assets/img/car.png" alt="" class="car-img">
-                <div class="car-endpoint1">*</div>
-                <div class="line1"></div>
-                <div class="car-item">
-                    <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
-                    <div class="car-item-title">
-                        <p class="car-item-icon">
-                            /
+            <div class="container">
+                <h2 class="range-title title">
+                    Різновиди присадок
+                </h2>
+                <div class="car">
+                    <img src="@/assets/img/car.png" alt="" class="car-img">
+                    <div class="car-item car-item1">
+                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <div class="car-item-title">
+                            <span class="car-item-icon">
+                                /
+                            </span>
+                            <h4 class="car-item-name">
+                                Трансмісія
+                            </h4>
+                        </div>
+                        <p class="car-item-decs">
+                            Сприяє усуненню шумів/вібрації Зменшує коефіцієнт тертя до <strong>5%</strong> Полегшує перемикання передач Для обробки механічних КПП, редукторів, кермових механізмів
                         </p>
-                        <h4 class="car-item-name">
-                            Трансмисия
-                        </h4>
+                        <button class="car-item-btn btn">
+                            До товару
+                        </button>
+                        <div class="line line1">
+                            <span class="line-point point-start"></span>
+                            <span class="line-point point-end"></span>
+                        </div>
                     </div>
-                    <p class="car-item-decs">
-                        Способствует устранению шумов/вибрации Уменьшает коэффициент трения до 5% Облегчает переключение передач Для обработки механических КПП, редукторов, рулевых механизмов
-                    </p>
-                    <button class="car-item-btn btn">
-                        К товару
-                    </button>
-                     <div class="car-startpoint1">*</div>
+                    <div class="car-item car-item2">
+                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <div class="car-item-title">
+                            <span class="car-item-icon">
+                                /
+                            </span>
+                            <h4 class="car-item-name">
+                                Паливний насос
+                            </h4>
+                        </div>
+                        <p class="car-item-decs">
+                            Подовження терміну експлуатації в <strong> 2-3 рази</strong> на зниження споживання палива до <strong> 5% </strong>скорочення токсичності вихлопів "легкий старт" при температурах нижче <strong>0</strong>
+                        </p>
+                        <button class="car-item-btn btn">
+                            До товару
+                        </button>
+                        <div class="line line2">
+                            <span class="line-point point-start"></span>
+                            <span class="line-point point-end"></span>
+                        </div>
+                    </div>
+                    <div class="car-item car-item3">
+                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <div class="car-item-title">
+                            <span class="car-item-icon">
+                                /
+                            </span>
+                            <h4 class="car-item-name">
+                                Двигун
+                            </h4>
+                        </div>
+                        <p class="car-item-decs">
+                            Усунення зносу під час холодного пуску Регенерація зношених деталей Зниження токсичності вихлопів Економія палива — <strong>8-10%</strong>
+                        </p>
+                        <button class="car-item-btn btn">
+                            До товару
+                        </button>
+                        <div class="line line3">
+                            <span class="line-point point-start"></span>
+                            <span class="line-point point-end"></span>
+                        </div>
+                    </div>
+                    <div class="car-item car-item4">
+                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <div class="car-item-title">
+                            <span class="car-item-icon">
+                                /
+                            </span>
+                            <h4 class="car-item-name">
+                                Розкоксувач
+                            </h4>
+                        </div>
+                        <p class="car-item-decs">
+                            Ефективно справляється із забрудненнями клапанів Підходить для бензинових та дизельних моторів. Відмінно справляється з нагаром та коксом. Помітно покращує роботу каталізатора допалу вихлопних газів.
+                        </p>
+                        <button class="car-item-btn btn">
+                            До товару
+                        </button>
+                        <div class="line line4">
+                            <span class="line-point point-start"></span>
+                            <span class="line-point point-end"></span>
+                        </div>
+                    </div>
+                    <div class="car-item car-item5">
+                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <div class="car-item-title">
+                            <span class="car-item-icon">
+                                /
+                            </span>
+                            <h4 class="car-item-name">
+                                Гідропідсилювач керма
+                            </h4>
+                        </div>
+                        <p class="car-item-decs">
+                           Збільшується термін служби гідравлічної рідини до <strong>2-х</strong> разів Збільшується термін служби ГУР автомобіля в <strong>2-3</strong> рази Відновлює керованість автомобіля Знижує шум та вібрацію
+                        </p>
+                        <button class="car-item-btn btn">
+                            До товару
+                        </button>
+                        <div class="line line5">
+                            <span class="line-point point-start"></span>
+                            <span class="line-point point-end"></span>
+                        </div>
+                    </div>
+                    <div class="car-item car-item6">
+                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <div class="car-item-title">
+                            <span class="car-item-icon">
+                                /
+                            </span>
+                            <h4 class="car-item-name">
+                                Активатор бензину
+                            </h4>
+                        </div>
+                        <p class="car-item-decs">
+                            Цілком сумісний з іншими присадками Здатний очистити всю паливну систему Дозволяє швидко очистити паливну систему від продуктів горіння
+                        </p>
+                        <button class="car-item-btn btn">
+                            До товару
+                        </button>
+                        <div class="line line6">
+                            <span class="line-point point-start"></span>
+                            <span class="line-point point-end"></span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         <section class="feedback">
             <div class="container">
-                <carousel :items-to-show="1" class="comments">
+                <h2 class="feedback-title title">
+                    Відгуки
+                </h2>
+                <carousel :items-to-show="2.5" class="comments">
                     <slide class="comments-slide">
                         <div class="comments-info">
-                            <div class="comments-name">
-                                Сергей
-                            </div>
-                            <div class="comments-goods">
+                            <p class="comments-name">
+                                Сергій
+                            </p>
+                            <p class="comments-goods">
                                 Mega Force
-                            </div>
+                            </p>
                         </div>
-                        <div class="comments-desc">
-                            Относился скептично. Но решил испробовать и средство действительно помогло. Залил в маслянную систему двигателя мотоцикла BMB r1150r. После присадки мотор перестал вообще брать масло, и компрессия в левом цилиндре выровнялась с правым. После обработки двигатель заводиться стал легче, стал экономичней и грееться теперь не так как раньше. Так что, всем советую.
-                        </div>
+                        <p class="comments-desc">
+                            Ставився скептично. Але вирішив випробувати і засіб справді допоміг. Залив у масляну систему двигуна мотоцикла BMB r1150r. Після присадки мотор перестав узагалі брати масло, і компресія у лівому циліндрі вирівнялася з правим. Після обробки двигун заводитися став легше, став економічнішим і гріється тепер не так, як раніше. Тож усім раджу.
+                        </p>
                         <div class="comments-info">
                             <div class="comments-rate">
                                 <img src="@/assets/img/star.svg" alt="Star" v-for="i in 5" :key="i">
                             </div>
                             <div class="comments-data">
-
+                                14-08-2020
                             </div>
                         </div>
+                        <img src="@/assets/img/comments__mega.png" alt="Mega Forse" class="comments-img">
                     </slide>
                     <slide class="comments-slide">
                         <div class="comments-info">
-                            <div class="comments-name">
-                                Сергей
-                            </div>
-                            <div class="comments-goods">
-                                Mega Force
-                            </div>
+                            <p class="comments-name">
+                                Катя
+                            </p>
+                            <p class="comments-goods">
+                                Astonish
+                            </p>
                         </div>
-                        <div class="comments-desc">
-                            Относился скептично. Но решил испробовать и средство действительно помогло. Залил в маслянную систему двигателя мотоцикла BMB r1150r. После присадки мотор перестал вообще брать масло, и компрессия в левом цилиндре выровнялась с правым. После обработки двигатель заводиться стал легче, стал экономичней и грееться теперь не так как раньше. Так что, всем советую.
-                        </div>
+                        <p class="comments-desc">
+                            Я дуже люблю цей засіб. Обробляю їм усі – від підлоги до стільниць. У нього взагалі немає запаху, тому при роботі з ним не задихнешся. Витрачається цілком собі економічно завдяки гарному розпилювачу-він дуже економить засіб. Ціна, звичайно, висока, але у цього засобу вона завжди була така, зате схвалено ес. Я працюю з ним без рукавичок, руки не їсть і не щипає, але може сушити.
+                        </p>
                         <div class="comments-info">
                             <div class="comments-rate">
                                 <img src="@/assets/img/star.svg" alt="Star" v-for="i in 5" :key="i">
                             </div>
                             <div class="comments-data">
-
+                                23-02-2020
                             </div>
                         </div>
+                         <img src="@/assets/img/comments__ast.png" alt="astonish" class="comments-img">
                     </slide>
                     <slide class="comments-slide">
                         <div class="comments-info">
-                            <div class="comments-name">
-                                Сергей
-                            </div>
-                            <div class="comments-goods">
+                            <p class="comments-name">
+                                Дмитро
+                            </p>
+                            <p class="comments-goods">
                                 Mega Force
-                            </div>
+                            </p>
                         </div>
-                        <div class="comments-desc">
-                            Относился скептично. Но решил испробовать и средство действительно помогло. Залил в маслянную систему двигателя мотоцикла BMB r1150r. После присадки мотор перестал вообще брать масло, и компрессия в левом цилиндре выровнялась с правым. После обработки двигатель заводиться стал легче, стал экономичней и грееться теперь не так как раньше. Так что, всем советую.
-                        </div>
+                        <p class="comments-desc">
+                            Коробка працює набагато тихіше. Робитиму повторну обробку.
+                        </p>
                         <div class="comments-info">
                             <div class="comments-rate">
                                 <img src="@/assets/img/star.svg" alt="Star" v-for="i in 5" :key="i">
                             </div>
                             <div class="comments-data">
-
+                                23-02-2020
                             </div>
                         </div>
-                    </slide>
-                    <slide class="comments-slide">
-                        <div class="comments-info">
-                            <div class="comments-name">
-                                Сергей
-                            </div>
-                            <div class="comments-goods">
-                                Mega Force
-                            </div>
-                        </div>
-                        <div class="comments-desc">
-                            Относился скептично. Но решил испробовать и средство действительно помогло. Залил в маслянную систему двигателя мотоцикла BMB r1150r. После присадки мотор перестал вообще брать масло, и компрессия в левом цилиндре выровнялась с правым. После обработки двигатель заводиться стал легче, стал экономичней и грееться теперь не так как раньше. Так что, всем советую.
-                        </div>
-                        <div class="comments-info">
-                            <div class="comments-rate">
-                                <img src="@/assets/img/star.svg" alt="Star" v-for="i in 5" :key="i">
-                            </div>
-                            <div class="comments-data">
-
-                            </div>
-                        </div>
+                        <img src="@/assets/img/comments__mega.png" alt="Mega Forse" class="comments-img">
                     </slide>
                     <template #addons>
                         <pagination />
@@ -250,7 +349,7 @@
 </template>
 
 <script>
-import TopItems from '@/pages/Top-Items.vue'
+import TopItems from '@/components/Top-Items.vue'
 import 'vue3-carousel/dist/carousel.css';
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 export default{

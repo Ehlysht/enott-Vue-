@@ -20,16 +20,12 @@
               </button>
             </div>
             <div class="navbar-cart">
-              <img src="@/assets/img/cart.svg" alt="cart" class="cart-icon" @click="showCart = !showCart">
+              <router-link tag="button" to="/cart" class="to-cart" this.activeMenu = ''>
+                <img src="@/assets/img/cart.svg" alt="cart" class="cart-icon" @click="showCart = !showCart">
+              </router-link>
               <span class="cart-count" v-if="this.allCartCount.length > 0">
                 {{ this.allCartCount.length }}
               </span>
-              <div class="mini-cart" v-if="showCart">
-                <cart/>
-                <router-link tag="button" to="/cart" class="to-cart" @click="showCart = false; this.activeMenu = ''">
-                  Open to Cart
-                </router-link>
-              </div>
             </div>
           </div>
           <ul class="navbar-list">
@@ -54,7 +50,47 @@
       </router-view>
   </div>
   
-  <footer></footer>
+  <footer class="footer">
+    <div class="container">
+      <ul class="footer-menu">
+        <p class="footer-menu-title footer-title">
+          Каталог товарів
+        </p>
+        <li class="footer-menu-item" v-for="link in links" :key="link.title">
+          <router-link 
+            class="footer-menu-link"
+            :title="link.title"
+            :to="link.url">
+            {{ link.title }}
+          </router-link>
+        </li>
+      </ul>
+      <div class="footer-info">
+        <p class="footer-info-title footer-title">
+          Каталог товарів
+        </p>
+        <p class="footer-info-text">
+          Телефон
+          <a href="tel:0954519482" class="footer-info-link">
+            095 451 9482
+          </a>
+        </p>
+        <p class="footer-info-text">
+          Пн-Пт: 9.00 - 19.00
+        </p>
+        <p class="footer-info-text">
+          Сб: 10.00 - 17.00
+        </p>
+      </div>
+      <div class="footer-logo">
+        <img src="@/assets/img/logo.png" alt="" class="footer-logo-img">
+      </div>
+      <div class="footer-goods">
+        <img src="@/assets/img/footer-logo1.png" alt="" class="footer-goods-img">
+        <img src="@/assets/img/footer-logo2.png" alt="" class="footer-goods-img">
+      </div>
+    </div>
+  </footer>
 </div>
 </template>
 
@@ -69,10 +105,10 @@ import cart from '@/components/Cart'
         isActive: true,
         showCart: false,
         links: [
-          {title: 'Главная', url: '/', name: "Home",},
-          {title: 'Бытовая химия', url: '/chemical', name: "chemical",},
-          {title: 'Автомобильные присадки', url: '/oil', name: "oil",},
-          {title: 'Доставка и оплата', url: '/delivery', name: "delivery"}
+          {title: 'Головна', url: '/', name: "Home",},
+          {title: 'Побутова хімія', url: '/chemical', name: "chemical",},
+          {title: 'Автомобільні присадки', url: '/oil', name: "oil",},
+          {title: 'Доставка і оплата', url: '/delivery', name: "delivery"}
         ],
         activeMenu: this.$route.name
       }
