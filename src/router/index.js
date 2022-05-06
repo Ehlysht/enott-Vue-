@@ -10,7 +10,13 @@ import Cart from '@/pages/Cart'
 import Menu2 from '@/pages/oil/Menu'
 import Delivery from '@/pages/Delivery'
 import Order from '@/pages/Order'
+import NotFound from '@/pages/NotFound'
+// CMS
+import Access from '@/cms/Access'
+import AddItem from '@/cms/AddItem'
+import ItemChange from '@/cms/ItemChange'
 const routes = [
+    
     {
       path: "/",
       name: "Home",
@@ -19,7 +25,7 @@ const routes = [
     {
       path: "/chemical",
       name: "Chemical",
-      component: Chemical,
+      component: Chemical
     },
     {
       path: "/items/:id",
@@ -31,6 +37,7 @@ const routes = [
     {
       path: "/chemical/:menuPos",
       component: Menu,
+      name: "chemical"
     },
     {
       path: "/oil",
@@ -45,23 +52,49 @@ const routes = [
     {
       path: "/oil/:menuPos",
       component: Menu2,
+      name: "oil"
     },
     {
       path: "/delivery",
       name: "Delivery",
       component: Delivery,
     },
-    ,
     {
       path: "/order",
       name: "Order",
       component: Order,
     },
-    
+    // CMS
+    {
+      path: "/cms/access",
+      name: "Access",
+      component: Access,
+    },
+    {
+      path: "/cms/additem",
+      name: "AddItem",
+      component: AddItem,
+    },
+    {
+      path: "/cms/:id",
+      name: "ItemChange",
+      component: ItemChange,
+    },
+    { 
+      path: "/404",
+      name: "NotFound",
+      component: NotFound,
+    },
+    {
+      path: "/:catchAll(.*)", // Unrecognized path automatically matches 404
+      redirect: '/404',
+    },
 ];
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  
+  scrollBehavior() {
+    window.scrollTo(0,0);
+  }
 });
 export default router;

@@ -46,3 +46,11 @@
     font-size: 17px;
     color: #000;
 }
+.order-radio-input{
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.order-radio-img-top{
+    margin-top: -11px;
+}

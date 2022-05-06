@@ -11,21 +11,41 @@
               </a>
             </div>
             <div class="navbar-backcall">
-              <img src="@/assets/img/phone.svg" alt="phone" class="backcall-icon">
-              <button class="backcall">
-                095-451-94-82
-                <span class="backcall-text">
-                  Обратный звонок
-                </span>
-              </button>
+              <div class="backcall" @click="showForm = !showForm">
+                <img src="@/assets/img/phone.svg" alt="phone" class="backcall-icon">
+                <button class="backcall-btn">
+                  095-451-94-82
+                  <span class="backcall-btn-text">
+                    Зворотний дзвінок
+                  </span>
+                </button>
+              </div>
+              <form class="navbar-backcall-form" v-show="showForm">
+                <button class="backcall-form-cancel">
+                  <img src="@/assets/img/close.svg" alt="Close" class="backcall-form-close" @click.prevent="showForm = false">
+                </button>
+                <p class="backcall-form-text">
+                  Графік роботи:
+                </p>
+                <p class="backcall-form-text">
+                  08:00-21:00
+                </p>
+                <p class="backcall-form-question">
+                  Вам передзвонити?
+                </p>
+                <input type="phone" v-maska="'+380 (##) ##-##-###'" class="backcall-form-input" v-model="phoneNumber" required />
+                <button class="backcall-form-btn btn" @click="sendCallBack">
+                  Передзвонити мені
+                </button>
+              </form>
             </div>
             <div class="navbar-cart">
               <router-link tag="button" to="/cart" class="to-cart" this.activeMenu = ''>
+                <span class="cart-count" v-if="this.allCartCount.length > 0">
+                  {{ sumBuy }} Грн.
+                </span>
                 <img src="@/assets/img/cart.svg" alt="cart" class="cart-icon" @click="showCart = !showCart">
               </router-link>
-              <span class="cart-count" v-if="this.allCartCount.length > 0">
-                {{ this.allCartCount.length }}
-              </span>
             </div>
           </div>
           <ul class="navbar-list">
@@ -34,8 +54,8 @@
                class="navbar-link"
                :title="link.title"
                :to="link.url"
-               :class="{ activePage: this.activeMenu == link.name }"
-               @click="changeMenuName(link.name)">
+               :class="{ activePage: this.activeMenu == link.name, currentRouteName }"
+               >
                {{ link.title }}
               </router-link>
             </li>
@@ -95,8 +115,12 @@
 </template>
 
 <script>
-import cart from '@/components/Cart'
+import cart from '@/components/Cart';
+import axios from 'axios';
+import { mapMutations } from 'vuex';
+import { maska } from 'maska'
   export default {
+    directives: { maska },
     components: {
       cart
     },
@@ -104,29 +128,41 @@ import cart from '@/components/Cart'
       return{
         isActive: true,
         showCart: false,
+        showForm: false,
+        activeMenu: '',
+        phoneNumber: '+380',
         links: [
           {title: 'Головна', url: '/', name: "Home",},
           {title: 'Побутова хімія', url: '/chemical', name: "chemical",},
           {title: 'Автомобільні присадки', url: '/oil', name: "oil",},
           {title: 'Доставка і оплата', url: '/delivery', name: "delivery"}
-        ],
-        activeMenu: this.$route.name
+        ]
       }
     },
     computed: {
         allCartCount(){
             return this.$store.getters.allCart
-        }        
+        },
+        currentRouteName() {
+          this.activeMenu = this.$route.name;
+        },
+        sumBuy(){
+            if(this.$store.getters.allCart.length != 0){
+                var cartArray = this.$store.getters.allCart;
+                var endValue = 0;
+                for (var i = 0; i < cartArray.length; i++) {
+                    endValue = parseInt(endValue) + parseInt(cartArray[i].price * cartArray[i].qty)
+                }
+                return endValue
+            }
+        }
     },
-    mounted(){
-      this.activeMenu = this.$route.name;
-      this.$store.dispatch('setCart');
-    },
-    methods: {  
-      changeMenuName(page){
-        this.activeMenu = page;
+    methods:{
+      sendCallBack(){
+        var body = "<p>Привіт</p><br><p>Користувач просить перезвонити на номер телефону: <strong style='color: green;'>" + this.phoneNumber + "</strong></p>";
+        axios.post('http://localhost:3500/products/callback?tel=' + body)
       }
-    },
+    }
   }
 </script>
 

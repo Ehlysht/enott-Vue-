@@ -14,11 +14,8 @@
                             :key="index"
                             class="items"
                         > 
-                            <p
-                                class="items-id"
-                            >
-                                ID: {{ items.id }}
-                            </p>
+                            <change-item :itemId="items.id" :itemImg="items.link"/>
+                            <delete-item :itemId="items.id" :itemImg="items.link"/>
                             <img 
                                 :src="require('@/assets/img/' + items.link)" 
                                 :alt="items.name" 
@@ -45,35 +42,41 @@
 </template>
 
 <script>
-import leftMenu from '@/components/LeftMenu'
+import leftMenu from '@/components/LeftMenu';
+import deleteItem from '@/cms/DeleteItem';
+import changeItem from '@/cms/ChangeItem';
+import axios from 'axios';
 import { mapMutations } from 'vuex'
 export default {
     name: "Oil",
     components:{
-        leftMenu
+        leftMenu, deleteItem, changeItem
     },
     data(){
         return{
-            listProd: []
+            access: '',
         }
     },
     created(){
-        this.axios.get('http://localhost/NewApi/items.php?menuPos=oil')
-        .then(response => {
-            this.listProd = response.data;
-        })
+        this.access = document.cookie;
     },
      mounted(){
         if (localStorage.cart){
             this.cartList = JSON.parse(localStorage.cart);
-        }
+        };
+        this.$store.dispatch('setItems', 'oil');
     },
     methods: {
         ... mapMutations(['getCart']),
         addCart(item){
             this.getCart(item);
         }
-    }
+    },
+    computed: {
+        listProd(){
+            return this.$store.getters.allItems
+        }        
+    },
 }
 </script>
 

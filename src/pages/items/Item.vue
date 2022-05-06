@@ -86,20 +86,20 @@
                             <div 
                                 class="info-text"
                                 v-if="descr == 'descr'"
+                                v-html="item.descr"
                             >
-                                {{ item.descr }}
                             </div>
                             <div 
                                 class="info-text"
                                 v-if="descr == 'structure'"
+                                v-html="item.structure"
                             >
-                                {{ item.structure }}
                             </div>
                             <div 
                                 class="info-text"
                                 v-if="descr == 'used'"
+                                v-html="item.used"
                             >
-                                {{ item.used }}
                             </div>
                         </div>
                     </div>
@@ -132,16 +132,16 @@ export default {
         }
     },
     mounted(){
-        this.axios.get('http://localhost/NewApi/items.php?id=' + this.id)
+        this.axios.get('http://localhost:3500/products/item?id=' + this.id)
         .then(response => {
-            this.items = response.data;
+            this.items = response.data.values;
         })
     },
     methods: {
         sortList(){
-            this.axios.get('http://localhost/NewApi/items.php?id=' + this.id)
+            this.axios.get('http://localhost:3500/products/item?id=' + this.id)
             .then((response) => {
-                this.items = response.data;
+                this.items = response.data.values;
             })
             .catch((error) => {
                 console.log(error);

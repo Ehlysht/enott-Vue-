@@ -4,7 +4,7 @@
             <div class="container">
                 <carousel :items-to-show="1" class="banners">
                     <slide v-for="i in 3" :key="i" class="banner">
-                        <img src="@/assets/img/banner.png" alt="Banner">
+                        <img src="@/assets/img/banner.png" alt="Banner" class="banner-img">
                     </slide>
                     <template #addons>
                         <pagination />
@@ -93,7 +93,7 @@
                 <h2 class="megaforse-title title">
                     Mega Force
                 </h2>
-                <p class="megaforse-text">
+                <p class="megaforse-text megaforse-text-top">
                     Мегафорс — присадки для масел, предназначеные для предотвращения износа трущихся поверхностей сопрягающихся пар деталей, а также безразборного восстановления (ремонта) этих деталей, если их рабочие поверхности уже изношены.
                 </p>
                 <p class="megaforse-text">
@@ -138,7 +138,7 @@
                 <div class="car">
                     <img src="@/assets/img/car.png" alt="" class="car-img">
                     <div class="car-item car-item1">
-                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <img src="@/assets/img/carimg1.png" alt="Item" class="car-item-img">
                         <div class="car-item-title">
                             <span class="car-item-icon">
                                 /
@@ -159,7 +159,7 @@
                         </div>
                     </div>
                     <div class="car-item car-item2">
-                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <img src="@/assets/img/carimg2.png" alt="Item" class="car-item-img">
                         <div class="car-item-title">
                             <span class="car-item-icon">
                                 /
@@ -180,7 +180,7 @@
                         </div>
                     </div>
                     <div class="car-item car-item3">
-                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <img src="@/assets/img/carimg3.png" alt="Item" class="car-item-img">
                         <div class="car-item-title">
                             <span class="car-item-icon">
                                 /
@@ -201,7 +201,7 @@
                         </div>
                     </div>
                     <div class="car-item car-item4">
-                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <img src="@/assets/img/carimg4.png" alt="Item" class="car-item-img">
                         <div class="car-item-title">
                             <span class="car-item-icon">
                                 /
@@ -222,7 +222,7 @@
                         </div>
                     </div>
                     <div class="car-item car-item5">
-                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <img src="@/assets/img/carimg5.png" alt="Item" class="car-item-img">
                         <div class="car-item-title">
                             <span class="car-item-icon">
                                 /
@@ -243,7 +243,7 @@
                         </div>
                     </div>
                     <div class="car-item car-item6">
-                        <img src="@/assets/img/asdf.png" alt="Item" class="car-item-img">
+                        <img src="@/assets/img/carimg6.png" alt="Item" class="car-item-img">
                         <div class="car-item-title">
                             <span class="car-item-icon">
                                 /
@@ -271,7 +271,7 @@
                 <h2 class="feedback-title title">
                     Відгуки
                 </h2>
-                <carousel :items-to-show="2.5" class="comments">
+                <carousel :items-to-show="2.8" class="comments">
                     <slide class="comments-slide">
                         <div class="comments-info">
                             <p class="comments-name">

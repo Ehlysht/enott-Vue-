@@ -32,11 +32,11 @@
                     <p class="cart-item-sum-text cart-item-text">
                         Сума
                     </p>
-                    <p class="cart-item-sum-value cart-item-value" ref="countSum">
+                    <p class="cart-item-sum-value cart-item-value">
                         {{ parseInt(item.qty * item.price) }}
                     </p>
                 </div>
-                <button @click="delFromCart(index); updateSum()" class="cart-delete">
+                <button @click="delFromCart(index)" class="cart-delete">
                     <img src="@/assets/img/close.svg" alt="Close">
                 </button>
             </li>
@@ -45,7 +45,7 @@
             <p class="cart-user-sum" v-if="allCart != ''">
                 Сума: {{ sumBuy }} грн
             </p>
-            <router-link tag="button" to="/order" class="cart-btn to-order">
+            <router-link v-if="allCart != ''" tag="button" to="/order" class="cart-btn to-order">
                 Перейти до оформлення
             </router-link>
         </div>
@@ -58,28 +58,23 @@
 <script>
 import { mapMutations } from 'vuex'
 export default {
-    data(){
-        return{
-            sumBuy: 0
-        }
-    },
     computed: {
         allCart(){
             return this.$store.getters.allCart
         },
+        sumBuy(){
+            if(this.$store.getters.allCart.length != 0){
+                var cartArray = this.$store.getters.allCart;
+                var endValue = 0;
+                for (var i = 0; i < cartArray.length; i++) {
+                    endValue = parseInt(endValue) + parseInt(cartArray[i].price * cartArray[i].qty)
+                }
+                return endValue
+            }
+        }
     },
     mounted() {
         this.$store.dispatch('setCart');
-    },
-    beforeUpdate() {
-        if(this.$store.getters.allCart.length != 0){
-            var sumValue = this.$refs.countSum;
-            var endValue = 0;
-            for (var i = 0; i < sumValue.length; i++) {
-                endValue = parseInt(endValue) + parseInt(sumValue[i].outerText)
-            }
-            this.sumBuy = endValue
-        }
     },
     methods: {
         ... mapMutations(['deleteFromCart']),

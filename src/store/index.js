@@ -11,6 +11,7 @@ const store = createStore({
     listCart: getStore,
     menuList: [],
     topList: [],
+    listItems: []
   },
   getters: {
     allCart(state){
@@ -21,6 +22,9 @@ const store = createStore({
     },
     allTop(state){
       return state.topList;
+    },
+    allItems(state){
+      return state.itemsList;
     }
   },
   mutations: {
@@ -29,6 +33,9 @@ const store = createStore({
     },
     updateTop(state, topItems){
       state.topList = topItems
+    },
+    updateItems(state, listItems){
+      state.itemsList = listItems
     },
     getCart(state, item){
       var answer = "no";
@@ -67,15 +74,21 @@ const store = createStore({
       ctx.commit('updateCart', cartItems);
     },
     setMenu({ commit }, name){
-      axios.get('http://localhost/NewApi/items.php?menu=' + name)
+      axios.get('http://localhost:3500/products/menu?var=' + name)
       .then(response => {
-        commit('updateMenu', response.data);
+        commit('updateMenu', response.data.values);
       })
     },
     setTop({ commit }){
-      axios.get('http://localhost/NewApi/items.php?pop=yes')
+      axios.get('http://localhost:3500/products/popular?')
       .then(response => {
-        commit('updateTop', response.data);
+        commit('updateTop', response.data.values);
+      })
+    },
+    setItems({ commit }, varName){
+      axios.get('http://localhost:3500/products/list?var=' + varName)
+      .then(response => {
+        commit('updateItems', response.data.values);
       })
     }
   }

@@ -3,34 +3,24 @@
     <slide v-for="(slide, index) in allTop" :key="index" class="items">
       <a 
           :href="`/items/${slide.id}`"
-      > 
-          <p
-              class="items-id"
-          >
-              ID: {{ slide.id }}
-          </p>
-          <p
-              class="items-id"
-          >
-              Qty: {{ parseInt(slide.qty) }}
-          </p>
-          <img 
-              :src="require('@/assets/img/' + slide.link)" 
-              :alt="slide.name" 
-              class="items-img">
-          <p
-              class="items-name"
-          >
-              {{ slide.name.substr(0, 35) }}...
-          </p>
-          <p
-              class="items-price"
-          >
-              {{ slide.price }} грн.
-          </p>
-          <button class="btn" @click.prevent="addCart(slide)">
-              Купить
-          </button>
+      >
+        <img 
+            :src="require('@/assets/img/' + slide.link)" 
+            :alt="slide.name" 
+            class="items-img">
+        <p
+            class="items-name"
+        >
+            {{ slide.name.substr(0, 35) }}...
+        </p>
+        <p
+            class="items-price"
+        >
+            {{ slide.price }} грн.
+        </p>
+        <button class="btn" @click.prevent="addCart(slide)">
+            Купить
+        </button>
       </a>
     </slide>
 
